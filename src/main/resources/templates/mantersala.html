@@ -1,0 +1,70 @@
+<!-- ******************************************
+*  Created On : Sun Jan 16 2022
+*  Modelo de arquivo HTML para adicionar nova tela de conteúdo dentro do layout estabelecido no arquivo fragmentos/layout.html
+******************************************* -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragmentos/layout">
+<div th:fragment="conteudo" class="container">
+    <!-- insira seu código aqui -->
+    <ul class="nav justify-content-center p-3">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/manteralunos">Atualizar Cadastro Aluno</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/manterprofessores">Atualizar Cadastro Professores</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/mantersala" style="
+                            background-color: #e6e6fa;
+                            border-radius: 25px;
+                            margin: 8px;
+                        ">Atualizar Cadastro Salas de Aula</a>
+        </li>
+    </ul>
+
+    <div class="alert alert-danger" role="alert" th:if="${error}">
+        <span th:text="${error}">!</span>
+    </div>
+    <div class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(dangermensage)}">
+        <span th:text="${dangermensage}">!</span>
+    </div>
+    <div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(sucessmensage)}">
+        <span th:text="${sucessmensage}">!</span>
+    </div>
+
+    <form class="input-group mb-3" th:action="@{/mantersala}">
+        <input type="text" class="form-control" placeholder="Codigo" th:name="identidadeSala" />
+        <button class="btn btn-outline-secondary" id="button-addon2" type="submit">
+            Procurar
+        </button>
+    </form>
+
+    <form class="vh-100" th:action="@{/mantersala}" method="POST" th:object="${sala}">
+        <div class="input-group">
+            <span class="input-group-text">Turma</span>
+            <input type="text" aria-label="Código" class="form-control" th:field="*{turma}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Código da Sala</span>
+            <input type="number" aria-label="Código" class="form-control" th:field="*{cod_sala}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Qtd. Alunos</span>
+            <input type="number" size="200" aria-label="Qtd" class="form-control" th:field="*{qtd_alunos}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Local da Sala</span>
+            <input type="text" aria-label="sala" class="form-control" th:field="*{local_sala}" />
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto p-3">
+            <input type="submit" class="btn btn-primary btn-sm" formaction="/mantersala" value="Alterar">
+        </div>
+        <input type="hidden" th:name="sala" th:value="${sala?.cod_sala}">
+        <div class="d-grid col-3 mx-auto p-3">
+            <input type="submit" class="btn btn-primary btn-sm" formaction="/excluirsala" value="Apagar">
+        </div>
+    </form>
+
+</div>
+
+</html>

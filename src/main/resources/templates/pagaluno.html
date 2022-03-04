@@ -1,0 +1,93 @@
+<!-- ******************************************
+*  Created On : Sun Jan 16 2022
+*  Modelo de arquivo HTML para adicionar nova tela de conteúdo dentro do layout estabelecido no arquivo fragmentos/layout.html
+******************************************* -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragmentos/layout">
+<div th:fragment="conteudo" class="container">
+    <!-- insira seu código aqui -->
+    <div class="row justify-content-center p-3" th:object="${usuario}">
+            <h1 class="text-center text-white p-3">Ficha do Aluno</h1>
+
+                <div class="col-sm-1 col-md-6 col-lg-3">
+                    <h2 class="text-center text-white">Dados Pessoais</h2>
+                    <!---->
+                    <dt class="col text-center">Aluno (a):</dt>
+                    <dd class="col text-center" th:text="*{nome}">Lorem ipsum dolor sit amet</dd>
+                    <!---->
+                    <dt class="col text-center">Data de Nacimento:</dt>
+                    <dd class="col text-center" th:text="*{dataNasc}">xx/xx/xxxx</dd>
+                    <!---->
+                    <dt class="col text-center">CPF:</dt>
+                    <dd class="col text-center" th:text="*{cpf}">xxx.xxx.xxx-xx</dd>
+                    <!---->
+                    <dt class="col text-center">RG:</dt>
+                    <dd class="col text-center" th:text="*{rg}">XX-xx.xxx.xxx</dd>
+                    <!---->
+                    <dt class="col text-center">Telefone:</dt>
+                    <dd class="col text-center" th:text="*{telefone}">(xx) xxxx-xxxx</dd>
+                    <!---->
+                    <dt class="col text-center">E-mail:</dt>
+                    <dd class="col text-center" th:text="*{email}">Loremipsum@dolorsit.amet</dd>
+                </div>
+        
+                <div class="col-sm-1 col-md-6 col-lg-3">
+                    <h2 class="text-center text-white">Endereço</h2>
+                    <!---->
+                    <dt class="col text-center">CEP:</dt>
+                    <dd class="col text-center" th:text="*{cep}">xxxxx-xxx</dd>
+                    <!---->
+                    <dt class="col text-center">Logradouro:</dt>
+                    <dd class="col text-center" th:text="*{logradouro}">Lorem ipsum dolor sit amet</dd>
+                    <!---->
+                    <dt class="col text-center">Número:</dt>
+                    <dd class="col text-center" th:text="*{numero}">xxxx</dd>
+                    <!---->
+                    <dt class="col text-center">Estado:</dt>
+                    <dd class="col text-center" th:text="*{estado}">MG</dd>
+                    <!---->
+                    <dt class="col text-center">Cidade:</dt>
+                    <dd class="col text-center" th:text="*{cidade}">Uberlândia</dd>
+                    <!---->
+                    <dt class="col text-center">País:</dt>
+                    <dd class="col text-center" th:text="*{country}">BRASIL</dd>
+                </div>
+    </div>
+
+    <div class="row justify-content-center p-3" th:object="${aluno}">
+        <div class="col-sm-1 col-md-6 col-lg-3">
+            <h2 class="text-center text-white">Dados Familiar</h2>
+
+            <dt class="col text-center">Mãe:</dt>
+            <dd class="col text-center" th:text="*{nomeMae}">Lorem ipsum dolor sit amet</dd>
+
+            <dt class="col text-center">Pai:</dt>
+            <dd class="col text-center" th:text="*{nomePai}">Lorem ipsum dolor sit amet</dd>
+
+            <dt class="col text-center">Telefone de Contato:</dt>
+            <dd class="col text-center" th:text="*{telefoneMae}">(xx) xxxxx-xxxx</dd>
+
+            <dt class="col text-center">Telefone de Contato 2:</dt>
+            <dd class="col text-center" th:text="*{telefonePai}">(xx) xxxxx-xxxx</dd>
+
+            <dt class="col text-center">E-mail de contato:</dt>
+            <dd class="col text-center" th:text="*{emailMae}">Loremipsum@dolorsit.amet</dd>
+
+            <dt class="col text-center">E-mail de contato 2:</dt>
+            <dd class="col text-center" th:text="*{emailPai}">Loremipsum@dolorsit.amet</dd>
+        </div>
+
+        <div class="col-sm-1 col-md-6 col-lg-3">
+            <h2 class="text-center text-white">Dados Escolares</h2>
+
+            <dt class="col text-center">Matricula:</dt>
+            <dd class="col text-center" th:text="*{matricula}">xxxxxxxxx</dd>
+
+            <dt class="col text-center">Data de Mátricula:</dt>
+            <dd class="col text-center" th:text="*{dataMatricula}">xx/xx/xxxx</dd>
+        </div> 
+
+    </div>
+</div>
+
+</html>

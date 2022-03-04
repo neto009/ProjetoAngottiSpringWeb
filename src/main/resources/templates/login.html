@@ -1,0 +1,95 @@
+<!-- ******************************************
+*  Created On : Sun Jan 16 2022
+*  Modelo de arquivo HTML para adicionar nova tela de conteúdo dentro do layout estabelecido no arquivo fragmentos/layout.html
+******************************************* -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragmentos/layout">
+<div th:fragment="conteudo" class="container">
+  <!-- insira seu código aqui -->
+  <div>
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="
+                                row
+                                d-flex
+                                justify-content-center
+                                align-items-center
+                                h-100
+                            ">
+          <div class="
+                                    col-md-8 col-lg-6 col-xl-4
+                                    offset-xl-1
+                                    login
+                                    p-4
+                                    m-auto
+                                    mt-5
+                                ">
+
+            <form th:action="@{/login}" method="post">
+              <div class="d-flex flex-row  align-items-center justify-content-center justify-content-lg-start">
+                <a class="navbar-brand" href="/">
+                  <img class="img-fluid" src="../static/img/logo.png"
+                    th:attr="src=@{/img/logo.png},title=#{logo},alt=#{logo}" />
+                </a>
+                <p class="lead fw-normal mb-0 me-3">
+                  Minha conta:
+                </p>
+              </div>
+
+              <div class="divider
+                                            d-flex
+                                            align-items-center
+                                            my-4
+                                        "></div>
+
+              <!-- User input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="form3Example3" class="form-control form-control-lg"
+                  placeholder="Entre com o seu Login" name="username" />
+                <label class="form-label" for="form3Example3">Login</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <input type="password" id="form3Example4" class="form-control form-control-lg"
+                  placeholder="Informe sua senha" name="password" />
+                <label class="form-label" for="form3Example4">Senha</label>
+              </div>
+
+              <!-- <div class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        ">
+        
+                <div class="form-check mb-0">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                  <label class="form-check-label" for="form2Example3">
+                    Lembrar!
+                  </label>
+                </div>
+              </div> -->
+
+              <div class="
+                                            text-center text-lg-start
+                                            mt-4
+                                            pt-2
+                                        ">
+                <input value="Entrar" type="submit" class="btn btn-primary btn-lg"
+                  style=" padding-left: 2.5rem;padding-right: 2.5rem;">
+              </div>
+            </form>
+
+            <div th:if="${param.error}">
+              Usuário/Senha inválidos.</div>
+            <div th:if="${param.logout}">
+              Você foi deslogado.</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+</html>

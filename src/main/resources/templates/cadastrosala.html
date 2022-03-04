@@ -1,0 +1,55 @@
+<!-- ******************************************
+*  Created On : Sun Jan 16 2022
+*  Modelo de arquivo HTML para adicionar nova tela de conteúdo dentro do layout estabelecido no arquivo fragmentos/layout.html
+******************************************* -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragmentos/layout">
+<div th:fragment="conteudo" class="container">
+    <!-- insira seu código aqui -->
+    <ul class="nav justify-content-center p-3">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/cadastroaluno">Cadastrar Aluno</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/cadastroprofessor">Cadastrar Professores</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/cadastrosala" style="
+                        background-color: #e6e6fa;
+                        border-radius: 25px;
+                        margin: 8px;
+                    ">Cadastrar Salas de Aula</a>
+        </li>
+    </ul>
+    <div class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(dangermensage)}">
+        <span th:text="${dangermensage}">!</span>
+    </div>
+    <div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(sucessmensage)}">
+        <span th:text="${sucessmensage}">!</span>
+    </div>
+    <form action="" class="vh-100" th:action="@{/cadastrosala}" method="POST" th:object="${sala}">
+        <div class="input-group">
+            <span class="input-group-text">Turma</span>
+            <input type="text" aria-label="Código" class="form-control" th:field="*{turma}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Código da Sala</span>
+            <input type="number" aria-label="Código" class="form-control" th:field="*{cod_sala}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Qtd. Alunos</span>
+            <input type="number" aria-label="Qtd" class="form-control" th:field="*{qtd_alunos}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Local da Sala</span>
+            <input type="text" aria-label="sala" class="form-control" th:field="*{local_sala}" />
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto p-3">
+            <button class="btn btn-primary btn-sm" type="submit">
+                Cadastrar
+            </button>
+        </div>
+    </form>
+</div>
+
+</html>

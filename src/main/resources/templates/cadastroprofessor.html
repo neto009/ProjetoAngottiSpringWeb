@@ -1,0 +1,215 @@
+<!-- ******************************************
+*  Created On : Sun Jan 16 2022
+*  Modelo de arquivo HTML para adicionar nova tela de conteúdo dentro do layout estabelecido no arquivo fragmentos/layout.html
+******************************************* -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragmentos/layout">
+  <div th:fragment="conteudo" class="container">
+    <!-- insira seu código aqui -->
+    <ul class="nav justify-content-center p-3">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/cadastroaluno"
+          >Cadastrar Aluno</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="/cadastroprofessor"
+          style="background-color: #e6e6fa; border-radius: 25px; margin: 8px"
+          >Cadastrar Professores</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/cadastrosala">Cadastrar Salas de Aula</a>
+      </li>
+    </ul>
+
+    <div
+      class="alert alert-danger"
+      role="alert"
+      th:if="${!#strings.isEmpty(dangermensage)}"
+    >
+      <span th:text="${dangermensage}">!</span>
+    </div>
+    <div
+      class="alert alert-success"
+      role="alert"
+      th:if="${!#strings.isEmpty(sucessmensage)}"
+    >
+      <span th:text="${sucessmensage}">!</span>
+    </div>
+    <form
+      th:action="@{/cadastroprofessor}"
+      method="POST"
+      th:object="${professor}"
+    >
+      <div class="input-group">
+        <span class="input-group-text">Login</span>
+        <input
+          type="text"
+          aria-label="Login"
+          class="form-control"
+          th:field="*{usuario.login}"
+          maxlength="11"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Senha</span>
+        <input
+          type="password"
+          aria-label="Senha"
+          class="form-control"
+          th:field="*{usuario.senha}"
+          maxlength="10"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">RG</span>
+        <input
+          type="number"
+          aria-label="RG"
+          class="form-control"
+          th:field="*{usuario.rg}"
+          maxlength="11"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Telefone</span>
+        <input
+          type="number"
+          aria-label="Telefone"
+          class="form-control"
+          th:field="*{usuario.telefone}"
+          maxlength="11"
+          required
+        />
+        <div
+          class="alert alert-warning"
+          th:if="${#fields.hasErrors('usuario.telefone')}"
+          th:errors="*{usuario.telefone}"
+        ></div>
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Logradouro</span>
+        <input
+          type="text"
+          aria-label="Logradouro"
+          class="form-control"
+          th:field="*{usuario.logradouro}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Número</span>
+        <input
+          type="text"
+          aria-label="Número"
+          class="form-control"
+          th:field="*{usuario.numero}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Estado</span>
+        <input
+          type="text"
+          aria-label="Estado"
+          class="form-control"
+          th:field="*{usuario.estado}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Cidade</span>
+        <input
+          type="text"
+          aria-label="Cidade"
+          class="form-control"
+          th:field="*{usuario.cidade}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">País</span>
+        <input
+          type="text"
+          aria-label="País"
+          class="form-control"
+          th:field="*{usuario.country}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">CEP</span>
+        <input
+          type="text"
+          aria-label="CEP"
+          class="form-control"
+          th:field="*{usuario.cep}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Data de Nascimento</span>
+        <input
+          type="date"
+          aria-label="Data de Nascimento"
+          class="form-control"
+          th:field="*{usuario.dataNasc}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">E-mail</span>
+        <input
+          type="email"
+          aria-label="E-mail"
+          class="form-control"
+          th:field="*{usuario.email}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Nome</span>
+        <input
+          type="text"
+          aria-label="Nome"
+          class="form-control"
+          th:field="*{usuario.nome}"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">CPF</span>
+        <input
+          type="number"
+          aria-label="CPF"
+          class="form-control"
+          th:field="*{usuario.cpf}"
+          maxlength="11"
+          minlength="11"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Codigo do Professor</span>
+        <input
+          type="number"
+          aria-label="Cod_Prof"
+          class="form-control"
+          th:field="*{cod_professor}"
+          maxlength="11"
+          minlength="11"
+          required
+        />
+      </div>
+      <div class="d-grid gap-2 col-sm-3 mx-auto pb-5">
+        <input class="btn btn-primary btn-sm" value="Cadastrar" type="submit" />
+      </div>
+    </form>
+  </div>
+</html>
